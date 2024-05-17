@@ -1,0 +1,23 @@
+.image-slideshow {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.image-button {
+    margin: 10px;
+}
+.image-button:not(:disabled) {
+    outline: 2px solid purple;
+    color: purple;
+}
+.image-button:disabled {
+    outline: 2px solid #cfc3c3;
+    color: #cfc3c3;
+}
+.image-button:hover {
+    background-color: white;
+}
+.image-container {
+    width: 60%;
+    height: auto;
+}

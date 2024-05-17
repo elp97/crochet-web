@@ -1,0 +1,22 @@
+<div class="flex">
+    <mat-grid-list cols="4" rowHeight="75px" [gutterSize]="'20px'" class="flex-auto product-grid">
+        @for (product of productsList; track product.type) {
+            <mat-grid-tile
+            [colspan]="1"
+            [rowspan]="4"
+            [style.background]="'transparent'"
+            (click)="selectProduct(product.type)"
+            class="product-grid-item">
+                <img class="group-product-image" ngSrc="{{product.productImage}}" fill priority/>
+                <div class="image-title" [style.background]="product.background">{{product.count}} {{product.type}}
+                    @if (product.count > 1) {
+                        's
+                    }
+                </div>
+        </mat-grid-tile>
+        }
+    </mat-grid-list>
+</div>
+
+<!--     [colspan]="product.colSpace"
+            [rowspan]="product.rowSpace" -->

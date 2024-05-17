@@ -1,0 +1,9 @@
+<div class="image-slideshow">
+    <button type="button" mat-icon-button class="image-button" (click)="slideshowPrevious()" matTooltip="Previous" matTooltipPosition="below" [disabled]="chosenImageIndex < 1">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="keyboard_double_arrow_left"></mat-icon>
+    </button>
+    <img class="image-container" src="{{chosenImage.imageUrl}}"/>
+    <button type="button" mat-icon-button class="image-button" (click)="slideshowNext()" matTooltip="Next" matTooltipPosition="below" [disabled]="chosenImageIndex === slideshowImages.length -1">
+        <mat-icon fontIcon="keyboard_double_arrow_right"></mat-icon>
+    </button>
+</div>
