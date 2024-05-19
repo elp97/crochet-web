@@ -50,20 +50,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
     
     this.productsList = data.map((item: ProductTypes) => {
       item.productImage = `../../../assets/images/${item.type.toLowerCase()}/${item.type.toLowerCase()}_group.JPG`;
-      item.colSpace = Math.floor(Math.random() * 2) + 1;
-      item.rowSpace = Math.max(2, Math.floor(Math.random() * 5) + 1);
       item.background = this.colourSelection[this.randomInteger(1, this.colourSelection.length-1)];
       return item;
     })
-    //.sort((a: ProductTypes, b: ProductTypes) => a.type.localeCompare(b.type));
     console.log("product types ", data, this.productsList)
   }
 
   randomInteger(min: number = 1, max: number = 5) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
-
-
 }
 
 interface ProductTypes {
@@ -71,7 +66,5 @@ interface ProductTypes {
   type: string;
   count: number;
   productImage: string;
-  colSpace: number;
-  rowSpace: number;
   background: string;
 }
