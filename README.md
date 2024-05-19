@@ -1,3 +1,6 @@
+# About
+This is the frontend of my website to showcase my crochet creations. This project is still in development. 
+
 # CrochetWeb
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
