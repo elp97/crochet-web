@@ -12,11 +12,6 @@ export class ProductsService {
   apiUrl: string = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
-
-  fetchAllData() {
-    return this.http.get(`${this.apiUrl}/products`);
-  }
-
   getProductTypes() {
     return this.http.get(`${this.apiUrl}/products/getTypes`);
   }

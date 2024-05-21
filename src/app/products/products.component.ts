@@ -35,12 +35,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   selectProduct(event: string) {
    this.router.navigate([`/product`, {productType: event.toLowerCase()}]);
   }
-
-  getData() {
-    const dataSub = this.productSrv.fetchAllData().subscribe({next: (data) => console.log("d", data), error: (error) => console.error(error)});
-    this.subscription.add(dataSub);
-  }
-
+  
   getProductTypes() {
     const productTypessub = this.productSrv.getProductTypes().subscribe({next: (data) => this.formatProductTypes(data), error: (e) => console.error(e)});
     this.subscription.add(productTypessub);

@@ -8,6 +8,7 @@ import { CurrencyPipe } from '@angular/common';
 import { ProductsService } from '../../services/products.service';
 import {ProductI, ImageI} from '../../interfaces/productsI';
 import { Router } from '@angular/router';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-product-item',
@@ -56,7 +57,7 @@ export class ProductItemComponent implements OnInit {
   //get all products per type
   getProducts() {
     console.log("product", this.productType)
-    let results = this.productSrv.getProductDetailsByType(this.productType).subscribe({next: (data) => this.formatProductData(data), error: (e) => console.error(e)});
+     let results = this.productSrv.getProductDetailsByType(this.productType).subscribe({next: (data) => this.formatProductData(data), error: (e) => console.error(e)});
   }
 
   formatProductData(data: ProductI[]) {
