@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ImageI, ProductI } from '../interfaces/productsI';
+import { ProductTypes, ProductTypesResponse } from '../interfaces/productTypeI';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class ProductsService {
   apiUrl: string = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
-  getProductTypes() {
-    return this.http.get(`${this.apiUrl}/products/getTypes`);
+  getProductTypes() : Observable<ProductTypesResponse[]> {
+    return this.http.get<ProductTypesResponse[]>(`${this.apiUrl}/products/getTypes`);
   }
 
   getProductsPerType(productType: string) : Observable<ProductI[]> {

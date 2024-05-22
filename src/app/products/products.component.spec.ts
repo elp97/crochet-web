@@ -2,12 +2,14 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsComponent } from './products.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { By } from '@angular/platform-browser';
+import { of } from 'rxjs';
+import { ProductTypes } from '../interfaces/productTypeI';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
-  let testProductData = {
-    id: 1,
+  let testProductData: ProductTypes = {
+    id: "1",
     type: "test",
     count: 1,
     productImage: "",
@@ -37,8 +39,8 @@ describe('ProductsComponent', () => {
   });
 
   it('message not shown when data is present', () => {
-    const testData = [testProductData] as any;
-    component.productsList = testData;
+    const testData: ProductTypes[] = [testProductData];
+    component.productsList$ = of(testData);
 
     fixture.detectChanges();
     
@@ -46,10 +48,6 @@ describe('ProductsComponent', () => {
       By.css('[data-testid="no-products-msg"')
     );
     expect(noProductsMsg).toBeFalsy();
-  });
-
-  it('', () => {
-    
   });
 
 });

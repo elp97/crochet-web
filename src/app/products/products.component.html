@@ -1,7 +1,7 @@
 <div class="flex">
-    @if (productsList.length) {
+    @if (productsList$ | async) {
         <mat-grid-list cols="4" rowHeight="75px" [gutterSize]="'20px'" class="flex-auto product-grid" data-testid="">
-            @for (product of productsList; track product.type) {
+            @for (product of productsList$ | async; track product.type) {
                 <mat-grid-tile
                 [colspan]="1"
                 [rowspan]="4"
